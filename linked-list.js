@@ -142,14 +142,4 @@ LinkedList.prototype.toString = function() {
   return str
 }
 
-var a = new LinkedList()
-a.append('aaa')
-a.append('bbb')
-a.insert('ccc', 1)
-console.log(a.toString())
-console.log(a.get(2), a.size())
-console.log(a.indexOf('aaa'))
-a.update('ddd', 0)
-console.log(a.toString())
-console.log(a.removeAt(0).data, a.toString())
 exports.LinkedList = LinkedList
