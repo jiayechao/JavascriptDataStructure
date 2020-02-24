@@ -1,5 +1,5 @@
-const { Stack } =  require('../stack-array')
-
+// const { Stack } =  require('../stack-array')
+const { Stack } =  require('../stack-linkedlist')
 
 function decimal2binary(decimal) {
   const stack = new Stack()

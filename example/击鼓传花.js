@@ -2,7 +2,8 @@
  * 几个朋友围坐一起，开始数数，当数到某个数字时被淘汰，最后剩下的人胜利，请问哪个人会胜利
  */
 
-const { Queue } = require('../queue-array')
+// const { Queue } = require('../queue-array')
+const { Queue } = require('../queue-linkedlist')
 
 function victory(nameList, target) {
   const queue = new Queue()

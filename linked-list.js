@@ -115,7 +115,7 @@ LinkedList.prototype.removeAt = function(position) {
     prevNode.next = current.next
   }
   this.length -= 1
-  return current
+  return current.data
 }
 LinkedList.prototype.remove = function(data) {
   const index = this.indexOf(data)
