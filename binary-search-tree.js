@@ -103,16 +103,48 @@ BinarySearchTree.prototype.remove = function(key) {
    * 3. 有两个分支的节点
    */
   if(currentNode.left === null && currentNode.right === null) {
+    if(currentNode === this.root) {
+      this.root = null
+    } else {
+      parentNode[direct] = null
+    }
     return currentNode.key
   }
-  // 只有一个叶子节点
+  // 只有一个叶子节点, 右子节点
   if(currentNode.left === null && currentNode.right !== null) {
-    parentNode[direct] = currentNode.right
+    if(currentNode === this.root) {
+      this.root = currentNode.right
+    } else {
+      parentNode[direct] = currentNode.right
+    }
     return key
   }
+  // 只有一个叶子节点, 左子节点
   if(currentNode.left !== null && currentNode.right === null) {
-    parentNode[direct] = currentNode.left
-    return 
+    if(currentNode === this.root) {
+      this.root = currentNode.left
+    } else {
+      parentNode[direct] = currentNode.left
+    }
+    return key
+  }
+  // 有两个节点
+  /**
+   * 规律就是找前驱和后继，
+   */
+  if(currentNode.left !== null && currentNode.right !== null) {
+    // 1. 获取后记
+    const successor = BinarySearchTree.getSuccssor(key)
+    // 2. 是不是一个根
+    if(currentNode === this.root) {
+      // 将指针调整 -> 这里有特殊情况，请搜索 note1
+      this.root = successor
+    } else {
+      // 将要删除节点的父节点的direct方向指向后继
+      parentNode[direct] = successor
+    }
+    // 后继的左节点指向要删除节点的左节点
+    successor.left = currentNode.left
   }
   
 }
@@ -202,6 +234,28 @@ BinarySearchTree.nextOrderTraversalNode = function(node,handle) {
   }
 }
 
+// 找后继
+BinarySearchTree.getSuccssor = function(delNode) {
+  let successor = deNode
+  let currentNode = delNode.right // 删除节点的右节点
+  let successorParent = delNode
+  // 循环查找
+  while(currentNode.left) {
+    successorParent = currentNode
+    successor = currentNode.left
+    currentNode = currentNode.left
+  }
+
+  // note1 后继不等于 要删除的节点 的右节点
+  if(successor !== delNode.right) {
+    // 同时原来后继节点的右节点（不考虑左节点，因为如果有左节点，那这后继就是错的）变成了后继父节点的左节点
+    successorParent.left = successor.right
+    // 后继节点的右节点要指向删除节点的右节点
+    successor.right = delNode.right
+  }
+  successor.right = currentNode.right
+  return successor
+}
 
 const tree = new BinarySearchTree()
 
