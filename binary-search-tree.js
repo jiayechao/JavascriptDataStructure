@@ -134,7 +134,7 @@ BinarySearchTree.prototype.remove = function(key) {
    */
   if(currentNode.left !== null && currentNode.right !== null) {
     // 1. 获取后记
-    const successor = BinarySearchTree.getSuccssor(key)
+    const successor = BinarySearchTree.getSuccssor(currentNode)
     // 2. 是不是一个根
     if(currentNode === this.root) {
       // 将指针调整 -> 这里有特殊情况，请搜索 note1
@@ -236,7 +236,7 @@ BinarySearchTree.nextOrderTraversalNode = function(node,handle) {
 
 // 找后继
 BinarySearchTree.getSuccssor = function(delNode) {
-  let successor = deNode
+  let successor = delNode
   let currentNode = delNode.right // 删除节点的右节点
   let successorParent = delNode
   // 循环查找
@@ -279,14 +279,14 @@ tree.insert(14)
 tree.insert(20)
 tree.insert(18)
 tree.insert(25)
-console.log(JSON.stringify(tree))
+// console.log(JSON.stringify(tree))
 // tree.preOrderTraversal()
 // tree.midOrderTraversal()
 // tree.nextOrderTraversal()
 // console.log(str)
-console.log(tree.getMin())
-console.log(tree.getMax())
-console.log(tree.search(20))
+// console.log(tree.getMin())
+// console.log(tree.getMax())
+// console.log(tree.search(20))
 tree.remove(7)
 tree.midOrderTraversal()
 console.log(str)
