@@ -130,7 +130,7 @@ BinarySearchTree.prototype.remove = function(key) {
   }
   // 有两个节点
   /**
-   * 规律就是找前驱和后继，
+   * 规律就是找前驱和后继，然后替代删除节点
    */
   if(currentNode.left !== null && currentNode.right !== null) {
     // 1. 获取后记
@@ -248,9 +248,9 @@ BinarySearchTree.getSuccssor = function(delNode) {
 
   // note1 后继不等于 要删除的节点 的右节点
   if(successor !== delNode.right) {
-    // 同时原来后继节点的右节点（不考虑左节点，因为如果有左节点，那这后继就是错的）变成了后继父节点的左节点
+    // 原来后继节点的右节点（不考虑左节点，因为如果有左节点，那这后继就是错的）变成了后继父节点的左节点
     successorParent.left = successor.right
-    // 后继节点的右节点要指向删除节点的右节点
+    // 同时后继节点的右节点要指向删除节点的右节点
     successor.right = delNode.right
   }
   successor.right = currentNode.right
