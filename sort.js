@@ -48,14 +48,16 @@ ArrayList.prototype.selectionSort = function(){
   for(let j = 0;j < this.array.length - 1;j++) {
     let min = this.array[j]
     let minIndex = j
+    // 找到最小的
     for(let i = j+1; i < this.array.length; i++) {
       if(this.array[i] < min) {
         min = this.array[i]
         minIndex = i
       }
     }
+    // 和标记的交换
     this.switch(j, minIndex) // 只需要一轮交换一次
-    this.array[j] = min
+    // this.array[j] = min
   }
 }
 
@@ -94,14 +96,14 @@ ArrayList.prototype.shellSort = function() {
   // 当gap不为 1 时
   while(gap >= 1) {
     // 我们采取和插入排序的一样思想
-    for(let i = gap; i < len; i+=gap) {
+    for(let i = gap; i < len; i++) {
       let tmp = this.array[i]
       let j = i
       while(tmp < this.array[j - gap] && j - gap >= 0) {
         this.array[j] = this.array[j - gap]
         j -= gap
       }
-      this.array[j] = tmp 
+      this.array[j] = tmp
     }
     gap = Math.floor(gap / 2)
   }
@@ -180,17 +182,17 @@ ArrayList.prototype.medium= function(left, right) {
 const arr = new ArrayList()
 arr.insert(678)
 arr.insert(6)
-// arr.insert(12)
-// arr.insert(15)
-// arr.insert(67)
-// arr.insert(241)
-// arr.insert(3)
-// arr.insert(77)
-
-console.log(arr.toString())
+arr.insert(12)
+arr.insert(15)
+arr.insert(67)
+arr.insert(241)
+arr.insert(3)
+arr.insert(77)
+arr.insert(1)
+// console.log(arr.toString())
 // arr.bubbleSort()
 // arr.selectionSort()
 // arr.insertionSort()
-// arr.shellSort()
-arr.quickSort()
+arr.shellSort()
+// arr.quickSort()
 console.log(arr.toString())
