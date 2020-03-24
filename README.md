@@ -17,6 +17,7 @@ js的数组是经过巧妙分装的，已经不需要我们做过多的分装（
   3. [栈-链表实现](./stack-linkedlist.js)
   4. [队列-数组实现](./queue-array.js)
   5. [队列-链表实现](./queue-linkedlist.js)
+  6. [堆-二叉堆](./binary-heap.js)
   6. [优先队列](./priority-queue.array.js)
   7. [双向链表](./doubly-linked-list.js)
   8. [哈希函数](./hash-function.js)
