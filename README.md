@@ -30,4 +30,6 @@ js的数组是经过巧妙分装的，已经不需要我们做过多的分装（
   15. [排序](./sort.js)
   16. [冒泡排序的解释和优化](./bubbleSort.js)
   17. [鸡尾酒排序的解释和优化](./cocktailSort.js)
-
+  18. [快速排序](./quickSort.js)
+  19. [堆排序](./heapSort.js)
+  20. [计数排序](./countSort.js)

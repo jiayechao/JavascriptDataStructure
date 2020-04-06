@@ -81,6 +81,7 @@ BinaryHeap.prototype.switch = function(i, j) {
 }
 
 
+
 var a = new BinaryHeap()
 
 a.insert(6)
@@ -94,3 +95,5 @@ a.shift()
 a.shift()
 
 console.log(a)
+
+exports.BinaryHeap = BinaryHeap
